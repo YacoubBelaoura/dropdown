@@ -11,6 +11,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        direction: {
+            type: String,
+            default: 'left',
+        },
     },
 
     data: () => ({
@@ -58,6 +62,7 @@ export default {
             triggerSelector: this.triggerSelector,
             dropdownSelector: this.dropdownSelector,
             visible: this.visible,
+            direction: this.direction,
             open: this.open,
             close: this.close,
             attemptClose: this.attemptClose,

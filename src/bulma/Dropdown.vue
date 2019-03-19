@@ -3,7 +3,7 @@
         v-on="$listeners">
         <template v-slot:default="{
                 triggerSelector, dropdownSelector, visible, open, close,
-                attemptClose, dropdownEvents,
+                attemptClose, dropdownEvents, direction
             }">
             <div class="dropdown is-active"
                 v-click-outside="close"
@@ -17,7 +17,7 @@
                             type="button"
                             @click="open">
                             <slot name="label"/>
-                            <dropdown-indicator :open="visible"/>
+                            <dropdown-indicator :open="visible" :class="direction"/>
                         </button>
                     </slot>
                 </div>
@@ -69,7 +69,12 @@ export default {
                 .angle {
                     position: absolute;
                     top: 0.33rem;
-                    right: 0.5rem;
+                    &.left {
+                        right: 0.5rem;
+                    }
+                    &.right {
+                        left: 0.5rem;
+                    }
                 }
             }
         }
