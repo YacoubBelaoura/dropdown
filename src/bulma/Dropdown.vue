@@ -3,19 +3,21 @@
         v-on="$listeners">
         <template v-slot:default="{
                 triggerSelector, dropdownSelector, visible, open, close,
-                attemptClose, dropdownEvents,
+                opensUp, attemptClose, triggerEvents, dropdownEvents,
             }">
             <div class="dropdown is-active"
+                :class="{ 'is-up': opensUp }"
                 v-click-outside="close"
                 v-on="dropdownEvents">
                 <div class="dropdown-trigger"
                     :class="triggerSelector">
                     <slot name="trigger"
+                        :triggerEvents="triggerEvents"
                         :open="open"
                         :visible="visible">
                         <button class="button input"
                             type="button"
-                            @click="open">
+                            v-on="triggerEvents">
                             <slot name="label"/>
                             <dropdown-indicator :open="visible"/>
                         </button>
@@ -51,10 +53,15 @@ export default {
     directives: { clickOutside },
 
     components: { CoreDropdown, Fade, DropdownIndicator },
+
+    data: () => ({
+        opensTop: false,
+    }),
 };
 </script>
 
 <style lang="scss">
+
     .dropdown {
         .dropdown-trigger {
             .button.input {
@@ -69,7 +76,12 @@ export default {
                 .angle {
                     position: absolute;
                     top: 0.33rem;
-                    right: 0.5rem;
+                    [dir='ltr'] & {
+                        right: 0.5rem;
+                    }
+                    [dir='rtl'] & {
+                        left: 0.5rem;
+                    }
                 }
             }
         }
@@ -81,4 +93,5 @@ export default {
             }
         }
     }
+
 </style>
