@@ -19,7 +19,7 @@
                         <!-- <button class="button input" -->
                         <button class="button input rounded text-center
                             whitespace-no-wrap m-0 select-none relative align-top
-                            h-10 inline-flex rounded border border-gray-860
+                            h-9 inline-flex rounded border border-gray-860
                             items-center max-w-full w-full bg-white focus:shadow-outline
                             focus:border-blue-500 active:border-blue-500 hover:shadow-inner hover:border-gray-480 "
                             type="button"
