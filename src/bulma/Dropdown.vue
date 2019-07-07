@@ -17,11 +17,7 @@
                         :open="open"
                         :visible="visible">
                         <!-- <button class="button input" -->
-                        <button class="button input rounded text-center
-                            whitespace-no-wrap m-0 select-none relative align-top
-                            h-9 inline-flex rounded border border-gray-860
-                            items-center max-w-full w-full bg-white focus:shadow-outline
-                            focus:border-blue-500 active:border-blue-500 hover:shadow-inner hover:border-gray-480 "
+                        <button class="button input focus:border-blue-500 focus:shadow-outline h-9  hover:shadow-inner hover:border-blue-300 w-full"
                             type="button"
                             v-on="triggerEvents">
                             <slot name="label"/>
@@ -31,7 +27,7 @@
                 </div>
                 <fade>
                     <!-- <div class="dropdown-menu" -->
-                    <div class="dropdown-menu block pt-1 right-0 absolute top-full z-10 w-full"
+                    <div class="dropdown-menu block pt-1 right-0 absolute top-full z-10 "
                         :class="dropdownSelector"
                         v-if="visible">
                         <!-- <div class="dropdown-content " -->
@@ -75,9 +71,9 @@ export default {
     .dropdown {
         .dropdown-trigger {
             .button.input {
-                @apply outline-none;
+                @apply outline-none justify-between;
                 min-width: 4rem;
-                justify-content: flex-start;
+                // justify-content: flex-start;
                 line-height: 1.5;
                 padding-bottom: calc(0.375em - 1px);
                 padding-left: calc(0.625em - 1px);
